@@ -23,8 +23,8 @@ c) Start with reading the [Gargoyle Developer Documentation](https://www.gargoyl
         `npm -v # in my case 7.5.2`  
         `nodejs -v # in my case 12.22.5`  
         and maybe also:  
-        `npm install terser -g`  (to avoid installation during build time, haven't fully verified/tested that)  
-        `npm install uglifycss -g`  
+        `sudo npm install terser -g`  (to avoid installation during build time, haven't fully verified/tested that)  
+        `sudo npm install uglifycss -g`  
 * Now prepare a writable build directory as 'root' for the user 'pi' in _/opt_:  
         `cd /opt && sudo mkdir gargoyle && sudo chown pi:pi gargoyle`  
     (BTW I also tried it on /mnt/c, but there the file ownerships can't be set to pi:pi...)
