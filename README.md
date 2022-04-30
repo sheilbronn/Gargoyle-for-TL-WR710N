@@ -43,7 +43,7 @@ c) Start with reading the [Gargoyle Developer Documentation](https://www.gargoyl
         `cd gargoyle`
 * If building fails further down, consider a [correction for the remote URL](<https://github.blog/2021-09-01-improving-git-protocol-security-github>):  
         `git remote set-url origin https://github.com/ericpaulbishop/gargoyle.git`
-* Start the build - for the beginning choosing a very limited target scope, e.g. for _ath79_ and _usb_large_:  
+* Start the build - for the beginning choosing a very limited target scope, e.g. for _ath79_ and _usb_:  
         `make FULL_BUILD=true ath79.usb`  
     (N.B. if you get error messages about missing packages, install these as mentioned above with "apt install npm ....")
 * If you get the error msg _"The unauthenticated git protocol on port 9418 is no longer supported"_ then run (taken from <https://itsmycode.com/the-unauthenticated-git-protocol-on-port-9418-is-no-longer-supported>):  
@@ -78,8 +78,8 @@ c) Start with reading the [Gargoyle Developer Documentation](https://www.gargoyl
         `# echo tplink_tl-wr710n-v2.1          >> $tdir/profile_images`  
         `grep -i wr710 $tdir/*`  
         `done`  
-        `set +x`  
-* Restart the build:
+        `set +x`   
+* Restart the build:  
         `make ath79.usb   # do not repeat then full build`  
         `make ar71xx.usb`  
     Skip the full build only if you don't have a lot of patience - it will probably save you a few hours, but if it fails it might be more difficult to find out why....)
