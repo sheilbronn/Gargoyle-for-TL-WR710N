@@ -1,8 +1,9 @@
-# Full Notes on building Gargoyle 1.13 on Debian 11 and Ubuntu 20.04 on WSL 
+# Full Notes on building Gargoyle 1.13 on Debian 11 and Ubuntu 20.04 on WSL (for TL-WR710N and TL-WR810N)
 
-(as of 2022Apr30)
+(as of 2022Jun01)
 
-* TLDR: How to build a [Gargoyle](https://gargoyle-router.com/) 1.13 image for the cordless [TP-Link travel routers TL-WR710N V1 and v2.1](https://openwrt.org/toh/tp-link/tl-wr710n) on _Debian 11_ #bullseye on _Windows Subsystem for Linux_ (#WSL #21H2)
+* TLDR: How to build a [Gargoyle](https://gargoyle-router.com/) 1.13 image for the cordless [TP-Link travel routers TL-WR710N V1 and v2.1](https://openwrt.org/toh/tp-link/tl-wr710n) on _Debian 11_ #bullseye on _Windows Subsystem for Linux_ (#WSL #21H2).  
+(Instructions for building for the [TL-WR810N V1 and v2](https://openwrt.org/toh/tp-link/tl-wr810n) are given, too, but haven't tried running the image, yet))
 * Some links:  
 a) Here's the [Gargoyle forum post about the TP-Link TL-WR710N](https://www.gargoyle-router.com/phpbb/viewtopic.php?f=13&t=14062) that lead to this description.  
 b) Many thanks to Lantis and ispyisail for all their help and engagement!  
@@ -70,16 +71,16 @@ From later posts further down it seems that adding the repositories _universe_ a
         `done`  
         `set +x`  
 
-* EXPERIMENTAL alternative - including builds for TL-WR810N v1 and v2 as well - still to be tried:      
+* EXPERIMENTAL alternative - including builds for TL-WR810N v1 and v2 as well - builds went fine, but haven't tried installation yet:  
         `set -x`  
         `for profile in usb   ; do # skip the architecture NAMED. default`  
-                `for arch in ath79 ; do # skip: ar71xx`  
+                `for arch in ath79 ; do   # skip for now: ar71xx`  
                 `tdir=/opt/gargoyle/targets/${arch}/profiles/${profile}`  
                 `for device in tl-wr710n-v1 tl-wr710n-v2.1 tl-wr810n-v1 tl-wr810n-v2 ; do`  
-                `[ "$arch" = ath79 ] && device="tplink_$device"`  
-                `echo ARCH: $arch,  PROFILE: $profile,  DEVICE: $device`  
-                `echo CONFIG_TARGET_DEVICE_${arch}_generic_DEVICE_${device}=y  >> $tdir/config`  
-                `echo $([ "$arch" = ar71xx ] && echo -)${device}-squashfs                                    >> $tdir/profile_images`  
+                        `[ "$arch" = ath79 ] && device="tplink_$device"`  
+                        `echo ARCH: $arch,  PROFILE: $profile,  DEVICE: $device`  
+                        `echo CONFIG_TARGET_DEVICE_${arch}_generic_DEVICE_${device}=y  >> $tdir/config`  
+                        `echo $([ "$arch" = ar71xx ] && echo -)${device}-squashfs   >> $tdir/profile_images`  
                 `done`  
                 `egrep -r -i 'wr710|wr810' $tdir`  
                 `done`  
