@@ -105,15 +105,15 @@ From later posts further down it seems that adding the repositories _universe_ a
 * A few minutes later, I was able to reach <http://192.168.1.1/> and to log into Gargoyle with the default password "password" ... 
 
 * My use case:  
-        I use the TL-WR710 as a very portable _Gateway_ with an _DHCP Wireless_ uplink and as a _Client+AP_ wifi access point!  
-        From the TL-WR710's USB port one can power a simple GL-AR150 Freifunk router which gets it uplink from TL-WR710's Ethernet LAN port...  
-        BTW: To make both the Ethernet ports (LAN and LAN/WAN) available for LAN access to the uplink, in the Gargoyle UI set the option "Wan Ethernet Port" to "Bridge To LAN" !.
+        I use the TL-WR710 as a very portable "Wifi Repeater" with a  _Wireless_ uplink and a _Client+AP_ wifi access point!  
+        From the TL-WR710's USB port one can also power a simple GL-AR150 router with Freifunk which then gets it Internet uplink from TL-WR710's Ethernet LAN port...  
+        BTW: To make both the Ethernet ports (LAN and LAN/WAN) available for LAN access to the Internet uplink, set the option "Wan Ethernet Port" to "Bridge To LAN" in the Gargoyle UI !.
 
-* One agaain: Big thanks to all the people that make Gargoyle and OpenWrt work!
+* Once agaain: Big thanks to all the people that make Gargoyle and OpenWrt work!
 
 * Note: Older instructions from 2019 for building on Ubuntu Server 18.04 are here: <https://www.gargoyle-router.com/phpbb/viewtopic.php?f=14&t=11883> - they might be out of date.
 
-* Note: Beware that config variables and settings might be different for the different architectures and profiles! So here are the ones for the architecture _ar71xx_ for the "TP-Link TL-WR710N" (both versions 1 and 2.1) - The build for the profile _usb_ went fine for me, haven't tried _default_....:  
+* Note: Beware that OpenWrt's config variables and settings are different for the different architectures and profiles! So here are the ones for the architecture _ar71xx_ for the "TP-Link TL-WR710N" (both versions 1 and 2.1) - The build for the profile _usb_ went fine for me, I haven't tried _default_....:  
         `# export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`  
         `set -x`  
         `s=ar71xx`  
@@ -135,5 +135,4 @@ From later posts further down it seems that adding the repositories _universe_ a
         1688849862754293   7552 -rw-r--r--   1 pi       pi     7143428 Apr 28 23:15 images/ar71xx/gargoyle_1.13.x-ar71xx-generic-tl-wr710n-v1-squashfs-sysupgrade.bin
         2533274792886273   8512 -rw-r--r--   1 pi       pi     8126464 Apr 28 23:15 images/ar71xx/gargoyle_1.13.x-ar71xx-generic-tl-wr710n-v2.1-squashfs-factory.bin
         1970324839464962   8832 -rw-r--r--   1 pi       pi     7143428 Apr 28 23:15 images/ar71xx/gargoyle_1.13.x-ar71xx-generic-tl-wr710n-v2.1-squashfs-sysupgrade.bin
-
 
