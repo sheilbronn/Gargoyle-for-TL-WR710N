@@ -3,16 +3,16 @@
 (as of 2022Jun01)
 
 * TLDR: How to build a [Gargoyle](https://gargoyle-router.com/) 1.13 image for the cordless [TP-Link travel routers TL-WR710N V1 and v2.1](https://openwrt.org/toh/tp-link/tl-wr710n) on _Debian 11_ #bullseye on _Windows Subsystem for Linux_ (#WSL #21H2).  
-(Instructions for building for the [TL-WR810N V1 and v2](https://openwrt.org/toh/tp-link/tl-wr810n) are given, too, but haven't tried running the image, yet))
-* Some links:  
+(Instructions for building for the [TL-WR810N V1 and v2](https://openwrt.org/toh/tp-link/tl-wr810n) are given, too, but haven't tried running the resulting image yet))
+* Some links to start:  
 a) Here's the [Gargoyle forum post about the TP-Link TL-WR710N](https://www.gargoyle-router.com/phpbb/viewtopic.php?f=13&t=14062) that lead to this description.  
 b) Many thanks to Lantis and ispyisail for all their help and engagement!  
 c) Start with reading the [Gargoyle Developer Documentation](https://www.gargoyle-router.com/wiki/doku.php?id=developer_documentation) > "Building from source".  
 d) Plus the forum post [How-To Quick Build](https://www.gargoyle-router.com/phpbb/viewtopic.php?f=14&t=11883):
 From later posts further down it seems that adding the repositories _universe_ and _multiverse_ is not necessary anymore.
-* BTW: I used Debian 11 since that is recommended by the [OpenWrt build guide for WSL](<https://openwrt.org/docs/guide-developer/toolchain/wsl>) but it seems to run fine to try Ubuntu 20.04 LTS on WSL (or a 22.04), too.
+* BTW: I've been using Debian 11 since that is recommended by the [OpenWrt build guide for WSL](<https://openwrt.org/docs/guide-developer/toolchain/wsl>) but it seems to run fine to try Ubuntu _20.04_ LTS on WSL, too. But, I haven't had success with Ubuntu _22.04_ yet.
 * Install [Debian 11 "Bullseye"](https://www.microsoft.com/en-gb/p/debian/9msvkqc78pk6) (as of 24Apr2022) from the Microsoft store on your Windows Subsystem for Linux.
-* When being asked for the normal used during the installation create one, e.g. called "pi", and then after logging in run:  
+* When being asked for the normal used during the installation create one, e.g. called "pi", and then after logging in as this user run:  
         `sudo apt update && sudo apt upgrade`
 * Then follow the section "Debian/Ubuntu" in the  [OpenWRT developer guide](<https://openwrt.org/docs/guide-developer/toolchain/install-buildsystem>) for a 64bit system:  
         `sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo`  
@@ -71,7 +71,7 @@ From later posts further down it seems that adding the repositories _universe_ a
         `done`  
         `set +x`  
 
-* EXPERIMENTAL alternative - including builds for TL-WR810N v1 and v2 as well - builds went fine, but haven't tried installation yet:  
+* EXPERIMENTAL alternative - including the builds for TL-WR810N v1 and v2 as well - these builds went fine, but haven't tried installation yet:  
         `set -x`  
         `for profile in usb   ; do # skip the architecture NAMED. default`  
                 `for arch in ath79 ; do   # skip for now: ar71xx`  
@@ -88,7 +88,7 @@ From later posts further down it seems that adding the repositories _universe_ a
 
 * Then (re)start the build:  
         `make ath79.usb   # NB: ... not repeating the full build...`  
-    However, skip the full build only if you don't have a lot of patience - it will probably save you a few hours, but if it fails it might be more difficult to find out why....)
+    However, you should skip the full build only if you don't have a lot of patience - it will probably save you a few hours, but if it fails it might be more difficult to find out why....)
 
 * If all goes well, the new images look like:
 
