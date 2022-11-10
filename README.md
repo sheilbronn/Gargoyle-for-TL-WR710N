@@ -1,9 +1,9 @@
-# Full Notes on building Gargoyle 1.13 on Debian 11 and Ubuntu 20.04 on WSL (for TL-WR710N and TL-WR810N)
+# Full Notes on building Gargoyle 1.13 on Debian 11 and Ubuntu 20.04 on WSL (for TL-WR710N, TL-WR810N and AVM FritzRepeater 300E)
 
 (as of 2022Jun01)
 
 * TLDR: How to build a [Gargoyle](https://gargoyle-router.com/) 1.13 image for the cordless [TP-Link travel routers TL-WR710N V1 and v2.1](https://openwrt.org/toh/tp-link/tl-wr710n) on _Debian 11_ #bullseye on _Windows Subsystem for Linux_ (#WSL #21H2).  
-(Instructions for building for the [TL-WR810N V1 and v2](https://openwrt.org/toh/tp-link/tl-wr810n) are given, too, but haven't tried running the resulting image yet))
+(Instructions for building for the [TL-WR810N V1 and v2](https://openwrt.org/toh/tp-link/tl-wr810n) as well as the [AVM FritzRepeater 300E](https://openwrt.org/toh/hwdata/avm/avm_fritz_wlan_repeater_300e) are given, too, but I haven't tried running the resulting image yet))
 * Some links to start:  
 a) Here's the [Gargoyle forum post about the TP-Link TL-WR710N](https://www.gargoyle-router.com/phpbb/viewtopic.php?f=13&t=14062) that lead to this description.  
 b) Many thanks to Lantis and ispyisail for all their help and engagement!  
