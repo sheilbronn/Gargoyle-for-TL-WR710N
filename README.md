@@ -82,7 +82,7 @@ From later posts further down it seems that adding the repositories _universe_ a
                         `echo CONFIG_TARGET_DEVICE_${arch}_generic_DEVICE_${device}=y  >> $tdir/config`  
                         `echo $([ "$arch" = ar71xx ] && echo -)${device}-squashfs   >> $tdir/profile_images`  
                 `done`  
-                `egrep -r -i 'wr710|wr810' $tdir`  
+                `egrep -r -i 'wr710|wr810|300e' $tdir`  
                 `done`  
         `done`  
 
