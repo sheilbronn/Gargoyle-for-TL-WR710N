@@ -71,13 +71,13 @@ From later posts further down it seems that adding the repositories _universe_ a
         `done`  
         `set +x`  
 
-* EXPERIMENTAL alternative - including the builds for TL-WR810N v1 and v2 as well - these builds went fine, but haven't tried installation yet:  
+* EXPERIMENTAL alternative - including the builds for TL-WR810N v1/v2 and AVM as well - these builds went fine, but haven't tried installation yet:  
         `set -x`  
         `for profile in usb   ; do # skip the architecture NAMED. default`  
                 `for arch in ath79 ; do   # skip for now: ar71xx`  
                 `tdir=/opt/gargoyle/targets/${arch}/profiles/${profile}`  
-                `for device in tl-wr710n-v1 tl-wr710n-v2.1 tl-wr810n-v1 tl-wr810n-v2 ; do`  
-                        `[ "$arch" = ath79 ] && device="tplink_$device"`  
+                `for device in tl-wr710n-v1 tl-wr710n-v2.1 tl-wr810n-v1 tl-wr810n-v2 avm_fritz300e ; do`  
+                        `[[ $arch == ath79 &&  $device =~ ^tl ]] && device="tplink_$device"`  
                         `echo ARCH: $arch,  PROFILE: $profile,  DEVICE: $device`  
                         `echo CONFIG_TARGET_DEVICE_${arch}_generic_DEVICE_${device}=y  >> $tdir/config`  
                         `echo $([ "$arch" = ar71xx ] && echo -)${device}-squashfs   >> $tdir/profile_images`  
